@@ -1,5 +1,6 @@
 package com.kinderenge.dslist.controllers;
 
+import com.kinderenge.dslist.dto.GameDTO;
 import com.kinderenge.dslist.dto.GameMinDTO;
 import com.kinderenge.dslist.entities.Game;
 import com.kinderenge.dslist.services.GameService;
@@ -20,6 +21,12 @@ public class GameController {
     @GetMapping
     public List<GameMinDTO>findAll(){
         List<GameMinDTO>result=gameService.findAll();
+        return result;
+    }
+
+    @GetMapping(value = "/{id}")
+    public GameDTO findById(Long id){
+        GameDTO result=gameService.findById(id);
         return result;
     }
 }
